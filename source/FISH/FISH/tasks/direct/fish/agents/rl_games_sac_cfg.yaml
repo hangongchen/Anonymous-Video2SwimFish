@@ -1,0 +1,104 @@
+params:
+  # RNG seed for reproducibility.
+  seed: 42
+
+  # Environment wrapper clipping before RL-Games sees data.
+  env:
+    # Max abs observation value passed to the policy.
+    clip_observations: 5.0
+    # Max abs action value sent through the wrapper.
+    clip_actions: 1.0
+
+  # RL algorithm selection.
+  algo:
+    name: sac
+
+  # Model class used by RL-Games.
+  model:
+    name: soft_actor_critic
+
+  # Network architecture and init.
+  network:
+    name: soft_actor_critic
+    # Use separate actor/critic networks.
+    separate: True
+    # Continuous action space settings.
+    space:
+      continuous:
+    mlp:
+      # Hidden layer sizes for actor/critic MLPs.
+      units: [128, 128, 64]
+      # Activation function for MLP layers.
+      activation: elu
+      # Use D2RL connections (False = standard MLP).
+      d2rl: False
+
+      # Weight initializer for MLP layers.
+      initializer:
+        name: default
+      # Weight regularizer (None = disabled).
+      regularizer:
+        name: None
+    # Clamp log-std range for policy sampling.
+    log_std_bounds: [-10, 2]
+
+  # Resume training from checkpoint.
+  load_checkpoint: False
+  # Path to checkpoint when load_checkpoint is True.
+  load_path: ''
+
+  config:
+    # Run name and log directory tag.
+    name: fish_direct_sac
+    # RL-Games env wrapper name.
+    env_name: rlgpu
+    # Training device.
+    device: 'cuda:0'
+    # Device name used by RL-Games.
+    device_name: 'cuda:0'
+    # Enable multi-GPU training.
+    multi_gpu: False
+    # Normalize observations with running stats.
+    normalize_input: True
+    # Reward scaling.
+    reward_shaper:
+      scale_value: 100
+    # Max training epochs.
+    max_epochs: 10000
+    # Save best model after this epoch.
+    save_best_after: 50
+    # Save checkpoint every N epochs.
+    save_frequency: 25
+    # Discount factor.
+    gamma: 0.99
+    # Initial temperature (entropy weight).
+    init_alpha: 0.2
+    # Learning rate for temperature.
+    alpha_lr: 3e-4
+    # Actor learning rate.
+    actor_lr: 3e-4
+    # Critic learning rate.
+    critic_lr: 3e-4
+    # Target critic update rate.
+    critic_tau: 0.005
+    # SAC update batch size (sampled from replay).
+    batch_size: 512
+    # Learn alpha automatically.
+    learnable_temperature: True
+    # Target entropy scale (action_dim * -coef).
+    target_entropy_coef: 0.1
+    # Random-action warmup epochs.
+    num_warmup_steps: 10000
+    # Replay buffer capacity (transitions).
+    replay_buffer_size: 1000000
+    # Env steps per epoch.
+    num_steps_per_episode: 160
+    # Number of parallel envs (overridden by train script).
+    num_actors: -1
+
+    # Compatibility with train.py batch-size adjustments (unused by SAC itself).
+    horizon_length: 16
+    # PPO-only field (unused by SAC).
+    minibatch_size: 32
+    # PPO-only field (unused by SAC).
+    mini_epochs: 1

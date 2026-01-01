@@ -1,0 +1,26 @@
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+.DS_Store
+
+models/
+outputs/
+archives/
+Dataset/
+
+*.egg-info/
+
+# local-only / heavy / not source
+.claude/
+env_backup/
+third_party/
+gpu_resource_apply
+diag_coarse.py
+
+# stray captures
+*.png
+Screenshot*
+

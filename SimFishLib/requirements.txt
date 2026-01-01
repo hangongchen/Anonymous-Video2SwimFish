@@ -1,0 +1,17 @@
+numpy>=1.26
+trimesh>=4.4
+Pillow>=10.0
+opencv-python>=4.9
+scikit-image>=0.23
+huggingface_hub>=0.26
+modelscope>=1.20
+transformers>=4.57
+accelerate>=1.0
+peft>=0.13
+qwen-vl-utils>=0.0.14
+ms-swift>=3.8
+torch>=2.4
+pytest>=8.0
+torchvision>=0.19
+decord>=0.6
+tqdm>=4.66

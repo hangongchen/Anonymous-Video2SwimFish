@@ -1,0 +1,13 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "simfishlib"
+version = "0.1.0"
+description = "Fish video-to-3D-mesh pipeline using Qwen3-VL and voxel mesh conversion."
+requires-python = ">=3.10"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["simfishlib*"]

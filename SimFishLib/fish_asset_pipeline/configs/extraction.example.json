@@ -1,0 +1,20 @@
+{
+  "schema_version": "0.1.0",
+  "mesh_detection": {
+    "main_mesh_strategy": "largest_visible_mesh_by_world_bbox_volume",
+    "similar_volume_warning_ratio": 0.85,
+    "exclude_hidden_objects": true,
+    "exclude_armature_objects": true
+  },
+  "export": {
+    "mesh_format": "obj",
+    "write_skeleton_json": true,
+    "write_extraction_log": true
+  },
+  "render_views": {
+    "enabled": false,
+    "views": ["front", "side", "top"],
+    "resolution": [1024, 1024],
+    "transparent_background": true
+  }
+}

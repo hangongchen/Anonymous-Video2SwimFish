@@ -1,0 +1,87 @@
+# C++
+**/cmake-build*/
+**/build*/
+**/*.so
+**/*.log*
+
+# Omniverse
+**/*.dmp
+**/.thumbs
+
+# Python
+.DS_Store
+**/*.egg-info/
+**/__pycache__/
+**/.pytest_cache/
+**/*.pyc
+**/*.pb
+
+# Docker/Singularity
+**/*.sif
+docker/cluster/exports/
+docker/.container.cfg
+
+# IDE
+**/.idea/
+
+# Outputs
+**/output/*
+**/outputs/*
+**/videos/*
+**/wandb/*
+**/.neptune/*
+docker/artifacts/
+*.tmp
+
+# Doc Outputs
+**/docs/_build/*
+**/generated/*
+
+# Isaac-Sim packman
+_isaac_sim*
+_repo
+_build
+.lastformat
+
+# RL-Games
+**/runs/*
+**/logs/*
+**/recordings/*
+
+# Pre-Trained Checkpoints
+/.pretrained_checkpoints/
+
+# Teleop Recorded Dataset
+datasets
+
+# Tests
+tests/
+
+# Docker history
+.isaac-lab-docker-history
+
+# ---- fish_analytic_water session: local / generated / >100MB (GitHub limit) ----
+wandb/
+logs/
+demo_out/
+pointclouds/
+run_pointclouds/
+.codex/
+.vscode/
+*.deb
+*.rtf
+FISH_swimming_insights.pdf
+# fluid_env water assets are >100MB (Water_env.usd 182MB etc.) -> exceed GitHub limit
+source/FISH/FISH/tasks/direct/fish/agents/fluid_env/
+
+# IL-water monitoring outputs (generated per run)
+outcome/
+
+# ---- SimFishLib generated assets (merged in as a plain directory, sources only) ----
+SimFishLib/fish_asset_pipeline/generated_usd_dataset/
+SimFishLib/fish_asset_pipeline/dataset/
+SimFishLib/fish_asset_pipeline/extracted_dataset/
+SimFishLib/**/*.blend
+SimFishLib/**/*.obj
+SimFishLib/**/*.usd
+SimFishLib/**/*.usda
